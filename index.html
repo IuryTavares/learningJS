@@ -1,0 +1,121 @@
+<!--
+    DOM Document Object Model
+
+    É O HTML convertido para um objeto JavaScript
+    API que representa e interage com o HTML
+    Estrutura de dados do tipo árvore, criada pelo browser
+    Propriedades e métodos
+
+    Para que?
+    JavaScript usa a DOM para se conectar ao HTML
+    Manipular o HTML com o Javascript
+    você só programa pra WEB porque existe a DOM
+
+    para passar elementos no javascript podemos usar: 
+
+    getElementById (element)
+    getElementByClassName (HTMLCollection)
+    getElementByTagName (HTMLCollection)
+    querySelector (element)
+    querySelectorAll (Nodelist) dá pra usar for each
+
+    organizar o codigo -> Windows: shift + alt + f
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulating array</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <legend>Manutenção de Funcionários</legend>
+
+    <form id="form">
+      <div class="row align-items-start">
+        <div class="col-3">
+          <input id="cpf" type="text" data-index="new" class="form-control" placeholder="Cpf">
+        </div>
+        <div class="col-3">
+          <input id="nome" type="text" class="form-control" placeholder="Nome">
+        </div>
+        <div class="col-2">
+          <input id="cargo" type="text" class="form-control" placeholder="Cargo">
+        </div>
+        <div class="col-2">
+          <input id="salario" type="text" class="form-control" placeholder="Salario">
+        </div>
+
+        <div class="col">
+          <button id="salvar" type="submit" class="btn btn-secondary">Adicionar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fluid">
+    <br>
+    <h2>Lista de Funcionários</h2>
+    <br>
+    <table id="tableClient" class="table table-striped">
+      <thead>
+        <th>Cpf</th>
+        <th>Nome</th>
+        <th>Cargo</th>
+        <th>Salario</th>
+        <th></th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar dados</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+              <input id="cpfEditado" data-index="" type="text" class="form-control" placeholder="Cpf">
+            </div>
+            <div class="col-6">
+              <input id="nomeEditado" type="text" class="form-control" placeholder="Nome">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-6">
+              <input id="cargoEditado" type="text" class="form-control" placeholder="Cargo">
+            </div>
+            <div class="col-6">
+              <input id="salarioEditado" type="text" class="form-control" placeholder="Salario">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" onclick="saveClientEdited()" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="./script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</html>
